@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>	<link rel="dns-prefetch" href="https://cdn.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn1.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn2.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn3.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn4.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn5.vectorstock.com">
+
+	<title>Bike logo design Royalty Free Vector Image - VectorStock</title>
+	<meta name="description" content="trendy flat bike logo for bike shop or rental business. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions. ID #4573413.">
+	
+	<meta property="og:site_name" content="VectorStock">
+	<meta property="og:type" content="product">
+	<meta property="og:url" content="https://www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4573413">
+	<meta property="og:title" content="Bike logo design vector image on VectorStock">
+	<meta property="og:description" content="trendy flat bike logo for bike shop or rental business. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+	<meta property="og:image" content="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+	<meta property="og:image:url" content="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+	<meta property="og:image:secure_url" content="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="1000">
+	<meta property="og:price:amount" content="0.69">
+	<meta property="og:price:currency" content="USD">
+	<meta property="product:price:amount" content="0.69">
+	<meta property="product:price:currency" content="USD">
+
+	<meta property="fb:app_id" content="241100862642313">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="https://www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4573413">
+	<meta name="twitter:title" content="Bike logo design vector image">
+	<meta name="twitter:description" content="trendy flat bike logo for bike shop or rental business">
+	<meta name="twitter:image" content="https://cdn4.vectorstock.com/i/thumb-large/34/13/bike-logo-design-vector-4573413.jpg">
+	<meta name="twitter:image:width" content="238">
+	<meta name="twitter:image:height" content="250">
+	<meta name="twitter:site" content="@VectorStock">
+
+	<link rel="canonical" href="https://www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4573413">
+	<link rel="shortcut icon" href="https://cdn.vectorstock.com/img/icons/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/common1554169486.min.css">
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/vector1554169486.min.css">
+	<script src="//cdn.vectorstock.com/cache/common1555475172.min.js"></script>
+	<script src="//cdn.vectorstock.com/cache/vector1555475172.min.js"></script>
+<!-- Analytics --><script type="text/javascript">// Load GA script
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// Setup
+ga('create', 'UA-2180430-2', 'none');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+
+<!-- Top header -->
+<header>
+	<nav class="top">
+		<figure>
+			<a href="/" title="VectorStock&reg;">VectorStock&reg;</a>
+		</figure>
+
+		<div class="grid">
+			<form id="searchbox"
+				 class="empty">
+				<div class="wrap">
+					<fieldset>
+						<div class="contents">
+							<div class="tags">
+								<ul></ul>
+							</div>
+							<div class="input">
+								<input type="text" name="input" autocomplete="off"
+									autocapitalize="none" spellcheck="true"
+									value="" placeholder="Search…">
+								<button type="button" data-action="clear">×</button>
+							</div>
+
+							<input type="hidden" name="category"
+								value=""> <input type="hidden"
+								name="artist" value=""> <input
+								type="hidden" name="similar" value="">
+						</div>
+					</fieldset>
+
+					<button type="submit">
+						<span class="icon">Search</span>
+					</button>
+				</div>
+			</form>
+			<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+		</div>
+
+		<div class="aside">
+			<ul>
+				<li><a href="/popular-categories" title="Popular Categories">Popular
+						Categories</a></li>
+					<li><button type="button" data-action="signup">Sign Up</button></li>
+				</ul>
+		</div>
+
+		<div id="mobilenav-icon">
+			<span></span><span></span><span></span><span></span>
+		</div>
+	</nav>
+
+	<!-- Submenu -->
+		<nav id="searchrelated"></nav>	
+
+		<!-- Mobile menu -->
+	<div id="mobilenav-menu">
+		<div>
+			<div class="group">
+				<h4>Browse</h4>
+				<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+			</div>
+			<div class="group">
+				<h4>Account</h4>
+				<ul>
+					<li class="account">
+							<ul>
+								<li><a href="/signup">Sign Up</a></li>
+								<li data-action="login"><a href="/?login=1">Login…</a></li>
+							</ul>
+						</li>
+				</ul>
+				<form method="get" action="/auth/logout" class="logout">
+					<input type="hidden" name="logout" value="1">
+				</form>
+			</div>
+			<div class="group">
+				<h4>Help</h4>
+				<ul>
+					<li><a href="/faq"><abbr title="Frequently Asked Questions">FAQs</abbr></a></li>
+					<li><a href="/contact">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+		<!-- Account Menu Tabs -->
+		<aside id="nav_sidebar" class="tabs tabsDark">
+
+			<nav>
+				<ul role="tablist">
+					<li data-tab-id="signup" class=""><span role="tab"><span>Sign Up</span></span></li>
+					<li data-tab-id="login" class="selected"><span role="tab"><span>Log In</span></span></li>
+				</ul>
+			</nav>
+
+			<section id="sb_signup" data-tab-id="signup" class="">
+				<div class="primary">
+					<p>New to VectorStock?</p>
+					<p><em>We're the largest royalty-free, vector-only stock agency in the world.</em></p>
+					<p>Every week we add new premium graphics by the thousands.</p>
+				</div>
+				<div class="secondary">
+					<p>Whether you're a global ad&nbsp;agency or a freelance graphic designer, we have the vector graphics to make your project come to life.</p>
+					<p>Buy Vectors, sell Vectors or both. <a href="/signup">Sign up now, it’s free.</a></p>
+				</div>
+				<div class="footer">
+					<button class="master">
+						<span class="title">Sign Up...</span>
+						<span class="value">
+							<span class="symbol signup"></span>
+						</span>
+					</button>
+				</div>
+			</section>
+
+			<section id="sb_login" data-tab-id="login" class="selected">
+				<form action="/auth/login" method="post">
+
+
+					<fieldset class="">
+						<label for="vs_username">Email / Username</label>
+						<div class="textfield">
+							<input type="text" id="vs_username" name="vs_username" value="" autocomplete="on" tabindex="1">
+						</div>
+					</fieldset>
+					<fieldset class="">
+						<label for="vs_password">Password</label>
+						<button type="button" class="forgot">Forgot Password</button>
+						<div class="textfield">
+							<input type="password" id="vs_password" name="vs_password" value="" autocomplete="on" tabindex="2"  maxlength="20">
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="checkbox checked">
+							<label class="selected" for="vs_remember">
+								<span class="title">Stay Logged In</span>
+								<span class="icon"></span>
+								<input type="checkbox" id="vs_remember" name="vs_remember" value="yes" tabindex="3" checked>
+							</label>
+						</div>
+					</fieldset>
+
+
+					<button type="submit" tabindex="4">Log In</button>
+				</form>
+				<div class="alternatives">
+					<h6>Or Login With</h6>
+					<ul>
+						<li class="gp"><a href="/">
+							<span class="title">Google</span>
+							<span class="icon"></span>
+						</a></li>
+						<li class="fb"><a href="/">
+							<span class="title">Facebook</span>
+							<span class="icon"></span>
+						</a></li>
+					</ul>
+				</div>
+
+				
+			</section>
+		</aside>
+
+	<!-- Page -->
+	<article>
+		<section id="vs-asset">
+
+			<!-- Aside -->
+			<div class="aside">
+				<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" itemscope href="/royalty-free-vectors">
+							<span itemprop="name">Royalty Free Vectors</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" itemscope href="/royalty-free-vectors/logo-bike-design-vectors">
+							<span itemprop="name">Logo Bike Design Vectors</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+				</ol>
+
+				<h1>Bike logo design vector&nbsp;image</h1>
+
+				<figure style="padding-top: 99%;" class="target">
+					<div class="highres" data-src="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+						<noscript><img src="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg" title="Bike logo design vector image" alt="Bike logo design"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn4.vectorstock.com/i/thumbs/34/13/bike-logo-design-vector-4573413.jpg" title="Bike logo design vector image" alt="Bike logo design">
+					</div>
+					<div class="overlay"></div>
+				</figure>
+
+				<form data-loggedin="0" data-licenses="2" data-license="standard" data-status="" data-payments="3">
+					<input type="hidden" id="vector_id" value="4573413">
+					<input type="hidden" id="vector_title" value="Bike logo design">
+					<input type="hidden" id="vector_description" value="trendy flat bike logo for bike shop or rental business. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<input type="hidden" id="vector_url" value="https://www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4573413">
+					<input type="hidden" id="vector_media" value="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+					<input type="hidden" id="vector_ratio" value="1">
+					<input type="hidden" id="vector_license_status" value="">
+					<input type="hidden" id="artist_name" value="alejik">
+					<input type="hidden" id="account_user" value="0">
+
+					<div class="options">
+						<!--
+						-- OPTION: License type
+						-->
+						<div class="option" data-type="license" data-license="standard" data-licenses="2">
+							<h6><span class="type">License</span><a href="/faq/members/standard-license">Learn More</a></h6>
+							<div class="radgroup">
+								<fieldset>
+									<label for="f_license_standard" class="checked">
+										<input type="radio" id="f_license_standard" name="license" value="standard" checked="checked" tabindex="2">
+										<span class="label">Standard</span>
+										<span class="descr">For Print, Advertising, Design</span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_license_expanded">
+										<input type="radio" id="f_license_expanded" name="license" value="expanded" tabindex="4">
+										<span class="label">Expanded</span>
+										<span class="descr">For Resale &amp; Reproduction</span>
+									</label>
+								</fieldset>
+							</div>
+
+							<div class="help">
+								<p>The license type determines how you can use this image.</p>
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+																						<th data-license="standard">Std.</th>																						<th data-license="expanded">Exp.</th>										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td>Print / Editorial</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Graphic Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Web Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Social Media</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Edit &amp; Modify</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Multi-user</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Resale Items</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Unlimited Runs</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!--
+						-- OPTION: Payment options (Standard)
+						-->
+						<div class="option" data-type="payment" data-license="standard">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="radgroup" data-license="standard">
+																<fieldset>
+									<label for="f_payment_standard_single-image" class="checked" >
+										<input type="radio" id="f_payment_standard_single-image" name="payment_standard" data-cost="14.99" value="single-image"  checked="checked" tabindex="5">
+										<span class="label">Single Image</span>
+										<span class="value"><small>$</small><var>14.99</var></span>
+									</label>
+								</fieldset>
+																<fieldset>
+									<label for="f_payment_standard_credits">
+										<input type="radio" id="f_payment_standard_credits" name="payment_standard" data-cost="1" value="credits" tabindex="6">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>1.00</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_subscription">
+										<input type="radio" id="f_payment_standard_subscription" name="payment_standard" data-cost="1" value="subscription" tabindex="7">
+										<span class="label">Subscription</span>
+										<span class="value"><small>$</small><var>0.69</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>There are three ways to pay for Standard licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Image Price</th>
+										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Single Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>14.99</span>
+												</span>
+												<span class="byline">One-time payment</span>
+											</td>
+										</tr>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-As-You-Go Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>1</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1). Minimum purchase of 30.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Subscription Plan</span>
+													<span class="dm"></span>
+													<span class="dd"><em>From</em> 69c</span>
+												</span>
+												<span class="byline">Choose a monthly plan. Unused downloads automatically roll into following month.</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--
+						-- OPTION: Payment options (Expanded)
+						-->
+						<div class="option" data-type="payment" data-license="expanded">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="radgroup" data-license="expanded">
+																<fieldset>
+									<label for="f_payment_expanded_single-image" class="checked">
+										<input type="radio" id="f_payment_expanded_single-image" name="payment_expanded" data-cost="29.99" value="single-image" checked="checked" tabindex="8">
+										<span class="label">Single Image</span>
+										<span class="value"><small>$</small><var>29.99</var></span>
+									</label>
+								</fieldset>
+																<fieldset>
+									<label for="f_payment_expanded_credits">
+										<input type="radio" id="f_payment_expanded_credits" name="payment_expanded" data-cost="30" value="credits" tabindex="9">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>30.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+														<div class="help">
+								<p>There are two ways to pay for Expanded licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Cost per Image</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Single Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>29.99</span>
+												</span>
+												<span class="byline">One-off payment, no signup needed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>30</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1).</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+													</div>
+					</div>
+					<div class="download">
+						<button type="button" data-action="download">
+							<span class="label">Download Image</span>
+							<span class="icon"></span>
+						</button>
+						<h6><span class="label">Files Included</span></h6>
+						<div class="help">
+							<span class="loading"><span class="label">Loading Details...</span></span>
+						</div>
+					</div>
+					<div class="download_options">
+						<div class="wrap">
+							<div class="optgroup" data-action="download">
+								<span class="header">Download File/s:</span>
+								<div class="dropdown" data-value="zip">
+									<div class="display">
+										<span class="label"><strong>ZIP Archive</strong></span>
+										<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M10.6,12.8 15,17.2 19.4,12.8"/></svg></span>
+									</div>
+									<div class="select">
+										<select>
+											<optgroup label="All Files">
+												<option value="zip" data-label="ZIP Archive" data-details="" data-url="" selected="selected">ZIP Archive</option>											</optgroup>
+											<optgroup label="Image">
+												<option value="jpg" data-label="High-res JPG" data-details="300 DPI+" data-url="">High-res JPG (300 DPI+)</option>												<option value="png" data-label="High-res PNG" data-details="300 DPI+" data-url="">High-res PNG (300 DPI+)</option>											</optgroup>
+											<optgroup label="Vector">
+												<option value="ai" data-label="Adobe Illustrator" data-details="v10+" data-url="">Adobe Illustrator (v10+)</option>												<option value="eps" data-label="Vector EPS" data-details="v8+" data-url="">Vector EPS (v8+)</option>												<option value="pdf" data-label="Vector PDF" data-details="" data-url="">Vector PDF</option>											</optgroup>
+										</select>
+									</div>
+								</div>
+								<button type="button" data-action="download_file">
+									<span class="label">Download ZIP</span>
+									<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M23.6,21.2 23.6,9.5 16.4,9.5 16.4,21.3 10.8,21.3 11,21.5 20,30.5 29.2,21.3"/></svg></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<figure data-orientation="square" style="padding-top: 99%;" class="target">
+					<div class="highres" data-src="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+						<noscript><img src="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg" title="Bike logo design vector image" alt="Bike logo design"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn4.vectorstock.com/i/thumbs/34/13/bike-logo-design-vector-4573413.jpg" title="Bike logo design vector image" alt="Bike logo design">
+					</div>
+					<div class="overlay"></div>
+					<div class="panels">
+						<div class="share">
+							<h4>Share on</h4>
+							<ul>
+								<li class="pinterest"><button type="button" data-action="pinterest"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M12.5,0C5.6,0,0,5.6,0,12.5c0,5.12,3.08,9.52,7.48,11.45c-0.03-0.87-0.01-1.92,0.22-2.87c0.24-1.01,1.61-6.81,1.61-6.81s-0.4-0.8-0.4-1.98c0-1.85,1.07-3.24,2.41-3.24c1.14,0,1.69,0.85,1.69,1.88c0,1.14-0.73,2.85-1.1,4.44c-0.31,1.33,0.67,2.41,1.97,2.41c2.37,0,3.96-3.04,3.96-6.65c0-2.74-1.85-4.79-5.2-4.79c-3.79,0-6.15,2.83-6.15,5.99c0,1.09,0.32,1.86,0.82,2.45c0.23,0.27,0.26,0.38,0.18,0.7c-0.06,0.23-0.2,0.78-0.25,1c-0.08,0.32-0.34,0.43-0.63,0.31c-1.75-0.71-2.56-2.62-2.56-4.77c0-3.55,3-7.81,8.93-7.81c4.77,0,7.91,3.45,7.91,7.16c0,4.9-2.73,8.57-6.75,8.57c-1.35,0-2.62-0.73-3.05-1.56c0,0-0.73,2.88-0.88,3.44c-0.27,0.96-0.78,1.93-1.26,2.68C10.08,24.82,11.27,25,12.5,25C19.4,25,25,19.4,25,12.5S19.4,0,12.5,0L12.5,0z"/></svg></span><span class="label">Pinterest</span></span></button></li>
+								<li class="facebook"><button type="button" data-action="facebook"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.44,1H2.56C1.7,1,1,1.7,1,2.56v19.88C1,23.3,1.7,24,2.56,24h10.41v-8.89H9.98v-3.46h2.99V9.1c0-2.96,1.81-4.58,4.45-4.58c1.27,0,2.35,0.09,2.67,0.14v3.1l-1.83,0c-1.44,0-1.72,0.68-1.72,1.69v2.21h3.43l-0.45,3.46h-2.98V24h5.89C23.3,24,24,23.3,24,22.44V2.56C24,1.7,23.3,1,22.44,1z"/></svg></span><span class="label">Facebook</span></span></button></li>
+								<li class="twitter"><button type="button" data-action="twitter"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M7.86,22.5c9.43,0,14.59-7.69,14.59-14.37c0-0.22,0-0.44-0.01-0.65c1-0.71,1.87-1.6,2.56-2.61c-0.92,0.4-1.91,0.67-2.95,0.79c1.06-0.62,1.87-1.61,2.26-2.79c-0.99,0.58-2.09,1-3.26,1.23c-0.94-0.98-2.27-1.6-3.74-1.6c-2.83,0-5.13,2.26-5.13,5.05c0,0.4,0.05,0.78,0.13,1.15C8.05,8.49,4.27,6.48,1.74,3.42C1.3,4.17,1.05,5.04,1.05,5.96c0,1.75,0.91,3.3,2.28,4.2C2.49,10.14,1.7,9.91,1,9.53C1,9.55,1,9.58,1,9.6c0,2.45,1.77,4.49,4.11,4.95c-0.43,0.12-0.88,0.18-1.35,0.18c-0.33,0-0.65-0.03-0.96-0.09c0.65,2.01,2.55,3.47,4.79,3.51C5.84,19.5,3.63,20.3,1.22,20.3c-0.41,0-0.82-0.02-1.22-0.07C2.27,21.66,4.97,22.5,7.86,22.5"/></svg></span><span class="label">Twitter</span></span></button></li>
+							</ul>
+						</div>
+						<div class="composite">
+							<button type="button" data-action="download"><span><span class="label">Download JPG Preview Image</span></span></button>
+						</div>
+					</div>
+				</figure>
+				<div class="details">
+					<div class="meta">
+						<ul>
+							<li class="meta-id">
+								<dl><dt>Image ID</dt><dd>4573413</dd></dl>
+							</li>
+							<li class="meta-artist">
+								<dl>
+									<dt>Artist</dt>
+									<dd><a href="/royalty-free-vectors/vectors-by_alejik" rel="nofollow">alejik</a><button type="button" data-action="follow" title="Follow Artists that you like to create a newsfeed of their recent images."><span class="label">Follow</span></button></dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+					<div class="options" data-total="2">
+						<ul>
+							<li class="opt-like">
+								<button type="button" data-action="like" data-count="0"><span class="icon">&hearts;</span><span class="label">Like</span><span class="tally"></span></button>
+							</li>
+							<li class="opt-cart">
+								<button type="button" data-action="cart"><span class="icon">+</span><span class="label">Cart</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Metadata -->
+			<div class="metadata">
+				<div itemtype="http://schema.org/Product" itemscope>
+					<meta itemprop="sku" content="4573413">
+					<meta itemprop="productID" content="4573413">
+					<meta itemprop="name" content="Bike logo design">
+					<meta itemprop="description" content="trendy flat bike logo for bike shop or rental business. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<meta itemprop="releaseDate" content="2015-05-06">
+					<link itemprop="image" href="https://cdn4.vectorstock.com/i/1000x1000/34/13/bike-logo-design-vector-4573413.jpg">
+					
+					<div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
+						<meta itemprop="name" content="VectorStock">
+					</div>
+					<div itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+						<link itemprop="url" href="https://www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4573413">
+						<meta itemprop="availability" content="https://schema.org/InStock">
+						<div itemprop="price">0.69</div>
+						<div itemprop="priceCurrency">USD</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="vs-related">
+			<div id="group-similar" class="group">
+				<h6><span class="icon"></span><strong>Similar Images</strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/32/67/scooter-flat-icon-vector-20623267.jpg"><a href="//www.vectorstock.com/royalty-free-vector/scooter-flat-icon-vector-20623267" title="scooter flat icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/32/67/scooter-flat-icon-vector-20623267.jpg" title="scooter flat icon" alt="scooter flat icon vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/02/74/equipment-for-transport-driving-logo-set-bicycle-vector-22890274.jpg"><a href="//www.vectorstock.com/royalty-free-vector/equipment-for-transport-driving-logo-set-bicycle-vector-22890274" title="equipment for transport driving logo set bicycle vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/02/74/equipment-for-transport-driving-logo-set-bicycle-vector-22890274.jpg" title="equipment for transport driving logo set bicycle" alt="equipment for transport driving logo set bicycle vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/19/39/bicycle-black-vector-23711939.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-black-vector-23711939" title="bicycle black vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/19/39/bicycle-black-vector-23711939.jpg" title="bicycle black" alt="bicycle black vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/24/46/bike-rental-map-background-vector-6422446.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-rental-map-background-vector-6422446" title="bike rental map background vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/24/46/bike-rental-map-background-vector-6422446.jpg" title="bike rental map background" alt="bike rental map background vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/69/94/bike-mountain-downhill-flat-bicycle-vector-20686994.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-mountain-downhill-flat-bicycle-vector-20686994" title="bike mountain downhill flat bicycle vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/69/94/bike-mountain-downhill-flat-bicycle-vector-20686994.jpg" title="bike mountain downhill flat bicycle" alt="bike mountain downhill flat bicycle vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/08/86/seamless-pattern-with-bicycles-vector-21240886.jpg"><a href="//www.vectorstock.com/royalty-free-vector/seamless-pattern-with-bicycles-vector-21240886" title="seamless pattern with bicycles vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/08/86/seamless-pattern-with-bicycles-vector-21240886.jpg" title="seamless pattern with bicycles" alt="seamless pattern with bicycles vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/78/06/double-bicycle-hand-drawn-outline-doodle-icon-vector-23607806.jpg"><a href="//www.vectorstock.com/royalty-free-vector/double-bicycle-hand-drawn-outline-doodle-icon-vector-23607806" title="double bicycle hand drawn outline doodle icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/78/06/double-bicycle-hand-drawn-outline-doodle-icon-vector-23607806.jpg" title="double bicycle hand drawn outline doodle icon" alt="double bicycle hand drawn outline doodle icon vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/29/56/outdoor-bicycle-logo-icon-vector-23262956.jpg"><a href="//www.vectorstock.com/royalty-free-vector/outdoor-bicycle-logo-icon-vector-23262956" title="outdoor bicycle logo icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/29/56/outdoor-bicycle-logo-icon-vector-23262956.jpg" title="outdoor bicycle logo icon" alt="outdoor bicycle logo icon vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/04/79/tricycle-universal-icon-editable-thin-vector-23120479.jpg"><a href="//www.vectorstock.com/royalty-free-vector/tricycle-universal-icon-editable-thin-vector-23120479" title="tricycle universal icon editable thin vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/04/79/tricycle-universal-icon-editable-thin-vector-23120479.jpg" title="tricycle universal icon editable thin" alt="tricycle universal icon editable thin vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/11/40/scooter-rental-emblem-vector-21551140.jpg"><a href="//www.vectorstock.com/royalty-free-vector/scooter-rental-emblem-vector-21551140" title="scooter rental emblem vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/11/40/scooter-rental-emblem-vector-21551140.jpg" title="scooter rental emblem" alt="scooter rental emblem vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/91/50/duatlon-logo-vector-23779150.jpg"><a href="//www.vectorstock.com/royalty-free-vector/duatlon-logo-vector-23779150" title="duatlon-logo vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/91/50/duatlon-logo-vector-23779150.jpg" title="duatlon-logo" alt="duatlon-logo vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/36/97/bike-saddle-icon-simple-style-vector-24233697.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-saddle-icon-simple-style-vector-24233697" title="bike saddle icon simple style vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/36/97/bike-saddle-icon-simple-style-vector-24233697.jpg" title="bike saddle icon simple style" alt="bike saddle icon simple style vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/60/87/scooter-silhouette-set-vector-13736087.jpg"><a href="//www.vectorstock.com/royalty-free-vector/scooter-silhouette-set-vector-13736087" title="scooter silhouette set vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/60/87/scooter-silhouette-set-vector-13736087.jpg" title="scooter silhouette set" alt="scooter silhouette set vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/90/56/black-scooter-icon-vector-24779056.jpg"><a href="//www.vectorstock.com/royalty-free-vector/black-scooter-icon-vector-24779056" title="black scooter icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/90/56/black-scooter-icon-vector-24779056.jpg" title="black scooter icon" alt="black scooter icon vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/46/69/old-vintage-motorcycle-logo-cafe-racer-theme-vector-23694669.jpg"><a href="//www.vectorstock.com/royalty-free-vector/old-vintage-motorcycle-logo-cafe-racer-theme-vector-23694669" title="old vintage motorcycle logo cafe racer theme vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/46/69/old-vintage-motorcycle-logo-cafe-racer-theme-vector-23694669.jpg" title="old vintage motorcycle logo cafe racer theme" alt="old vintage motorcycle logo cafe racer theme vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/50/16/racing-road-bicycle-high-detailed-vector-21155016.jpg"><a href="//www.vectorstock.com/royalty-free-vector/racing-road-bicycle-high-detailed-vector-21155016" title="racing road bicycle high detailed vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/50/16/racing-road-bicycle-high-detailed-vector-21155016.jpg" title="racing road bicycle high detailed" alt="racing road bicycle high detailed vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/19/22/kick-bike-scooter-flat-icon-web-sign-symbol-logo-vector-5171922.jpg"><a href="//www.vectorstock.com/royalty-free-vector/kick-bike-scooter-flat-icon-web-sign-symbol-logo-vector-5171922" title="kick bike scooter flat icon web sign symbol logo vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/19/22/kick-bike-scooter-flat-icon-web-sign-symbol-logo-vector-5171922.jpg" title="kick bike scooter flat icon web sign symbol logo" alt="kick bike scooter flat icon web sign symbol logo vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/89/24/motorcyclist-abstract-sign-vector-21828924.jpg"><a href="//www.vectorstock.com/royalty-free-vector/motorcyclist-abstract-sign-vector-21828924" title="motorcyclist abstract sign vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/89/24/motorcyclist-abstract-sign-vector-21828924.jpg" title="motorcyclist abstract sign" alt="motorcyclist abstract sign vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/74/16/bicycle-with-plants-orange-bike-in-the-park-flat-vector-24597416.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-with-plants-orange-bike-in-the-park-flat-vector-24597416" title="bicycle with plants orange bike in the park flat vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/74/16/bicycle-with-plants-orange-bike-in-the-park-flat-vector-24597416.jpg" title="bicycle with plants orange bike in the park flat" alt="bicycle with plants orange bike in the park flat vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/79/22/retro-car-abstract-painted-silhouette-for-your-vector-21327922.jpg"><a href="//www.vectorstock.com/royalty-free-vector/retro-car-abstract-painted-silhouette-for-your-vector-21327922" title="retro car abstract painted silhouette for your vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/79/22/retro-car-abstract-painted-silhouette-for-your-vector-21327922.jpg" title="retro car abstract painted silhouette for your" alt="retro car abstract painted silhouette for your vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="24500655" data-title="web" data-src="https://cdn1.vectorstock.com/i/thumbs/06/55/web-vector-24500655.jpg"><a href="//www.vectorstock.com/royalty-free-vector/web-vector-24500655" title="web vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/06/55/web-vector-24500655.jpg" title="web" alt="web vector image"></noscript></a></li>
+						<li data-id="14270616" data-title="italian scooter from italy icon in flat style" data-src="https://cdn2.vectorstock.com/i/thumbs/06/16/italian-scooter-from-italy-icon-in-flat-style-vector-14270616.jpg"><a href="//www.vectorstock.com/royalty-free-vector/italian-scooter-from-italy-icon-in-flat-style-vector-14270616" title="italian scooter from italy icon in flat style vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/06/16/italian-scooter-from-italy-icon-in-flat-style-vector-14270616.jpg" title="italian scooter from italy icon in flat style" alt="italian scooter from italy icon in flat style vector image"></noscript></a></li>
+						<li data-id="23919584" data-title="bike logo icon design template" data-src="https://cdn5.vectorstock.com/i/thumbs/95/84/bike-logo-icon-design-template-vector-23919584.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-logo-icon-design-template-vector-23919584" title="bike logo icon design template vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/95/84/bike-logo-icon-design-template-vector-23919584.jpg" title="bike logo icon design template" alt="bike logo icon design template vector image"></noscript></a></li>
+						<li data-id="4316726" data-title="Bike rental logo Bicycle shop signboard" data-src="https://cdn2.vectorstock.com/i/thumbs/67/26/bike-rental-logo-bicycle-shop-signboard-vector-4316726.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-rental-logo-bicycle-shop-signboard-vector-4316726" title="Bike rental logo Bicycle shop signboard vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/67/26/bike-rental-logo-bicycle-shop-signboard-vector-4316726.jpg" title="Bike rental logo Bicycle shop signboard" alt="Bike rental logo Bicycle shop signboard vector image"></noscript></a></li>
+						<li data-id="24577341" data-title="simple bicycle icon black lines bike drawing on" data-src="https://cdn2.vectorstock.com/i/thumbs/73/41/simple-bicycle-icon-black-lines-bike-drawing-on-vector-24577341.jpg"><a href="//www.vectorstock.com/royalty-free-vector/simple-bicycle-icon-black-lines-bike-drawing-on-vector-24577341" title="simple bicycle icon black lines bike drawing on vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/73/41/simple-bicycle-icon-black-lines-bike-drawing-on-vector-24577341.jpg" title="simple bicycle icon black lines bike drawing on" alt="simple bicycle icon black lines bike drawing on vector image"></noscript></a></li>
+						<li data-id="21996982" data-title="bicycle icon" data-src="https://cdn3.vectorstock.com/i/thumbs/69/82/bicycle-icon-vector-21996982.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-icon-vector-21996982" title="bicycle icon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/69/82/bicycle-icon-vector-21996982.jpg" title="bicycle icon" alt="bicycle icon vector image"></noscript></a></li>
+						<li data-id="21805707" data-title="urban family bike with bags and a basket flat" data-src="https://cdn3.vectorstock.com/i/thumbs/57/07/urban-family-bike-with-bags-and-a-basket-flat-vector-21805707.jpg"><a href="//www.vectorstock.com/royalty-free-vector/urban-family-bike-with-bags-and-a-basket-flat-vector-21805707" title="urban family bike with bags and a basket flat vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/57/07/urban-family-bike-with-bags-and-a-basket-flat-vector-21805707.jpg" title="urban family bike with bags and a basket flat" alt="urban family bike with bags and a basket flat vector image"></noscript></a></li>
+						<li data-id="21450440" data-title="motorbikes set stylish motor transport item models" data-src="https://cdn1.vectorstock.com/i/thumbs/04/40/motorbikes-set-stylish-motor-transport-item-models-vector-21450440.jpg"><a href="//www.vectorstock.com/royalty-free-vector/motorbikes-set-stylish-motor-transport-item-models-vector-21450440" title="motorbikes set stylish motor transport item models vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/04/40/motorbikes-set-stylish-motor-transport-item-models-vector-21450440.jpg" title="motorbikes set stylish motor transport item models" alt="motorbikes set stylish motor transport item models vector image"></noscript></a></li>
+						<li data-id="23298589" data-title="scooter glyph icon vehicle and transport" data-src="https://cdn5.vectorstock.com/i/thumbs/85/89/scooter-glyph-icon-vehicle-and-transport-vector-23298589.jpg"><a href="//www.vectorstock.com/royalty-free-vector/scooter-glyph-icon-vehicle-and-transport-vector-23298589" title="scooter glyph icon vehicle and transport vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/85/89/scooter-glyph-icon-vehicle-and-transport-vector-23298589.jpg" title="scooter glyph icon vehicle and transport" alt="scooter glyph icon vehicle and transport vector image"></noscript></a></li>
+						<li data-id="23467569" data-title="bicycle quote and saying good for print" data-src="https://cdn5.vectorstock.com/i/thumbs/75/69/bicycle-quote-and-saying-good-for-print-vector-23467569.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-quote-and-saying-good-for-print-vector-23467569" title="bicycle quote and saying good for print vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/75/69/bicycle-quote-and-saying-good-for-print-vector-23467569.jpg" title="bicycle quote and saying good for print" alt="bicycle quote and saying good for print vector image"></noscript></a></li>
+						<li data-id="13753308" data-title="bike retro isometric view" data-src="https://cdn4.vectorstock.com/i/thumbs/33/08/bike-retro-isometric-view-vector-13753308.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-retro-isometric-view-vector-13753308" title="bike retro isometric view vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/33/08/bike-retro-isometric-view-vector-13753308.jpg" title="bike retro isometric view" alt="bike retro isometric view vector image"></noscript></a></li>
+						<li data-id="23237879" data-title="mountain bike" data-src="https://cdn5.vectorstock.com/i/thumbs/78/79/mountain-bike-vector-23237879.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mountain-bike-vector-23237879" title="mountain bike vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/78/79/mountain-bike-vector-23237879.jpg" title="mountain bike" alt="mountain bike vector image"></noscript></a></li>
+						<li data-id="20892321" data-title="bike icon bicycle symbol or biking travel sign" data-src="https://cdn2.vectorstock.com/i/thumbs/23/21/bike-icon-bicycle-symbol-or-biking-travel-sign-vector-20892321.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-icon-bicycle-symbol-or-biking-travel-sign-vector-20892321" title="bike icon bicycle symbol or biking travel sign vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/23/21/bike-icon-bicycle-symbol-or-biking-travel-sign-vector-20892321.jpg" title="bike icon bicycle symbol or biking travel sign" alt="bike icon bicycle symbol or biking travel sign vector image"></noscript></a></li>
+						<li data-id="22494778" data-title="silhouette of fix bike cycling sport background" data-src="https://cdn4.vectorstock.com/i/thumbs/47/78/silhouette-of-fix-bike-cycling-sport-background-vector-22494778.jpg"><a href="//www.vectorstock.com/royalty-free-vector/silhouette-of-fix-bike-cycling-sport-background-vector-22494778" title="silhouette of fix bike cycling sport background vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/47/78/silhouette-of-fix-bike-cycling-sport-background-vector-22494778.jpg" title="silhouette of fix bike cycling sport background" alt="silhouette of fix bike cycling sport background vector image"></noscript></a></li>
+						<li data-id="6921333" data-title="bicycle shop design template" data-src="https://cdn4.vectorstock.com/i/thumbs/13/33/bicycle-shop-design-template-vector-6921333.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-shop-design-template-vector-6921333" title="bicycle shop design template vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/13/33/bicycle-shop-design-template-vector-6921333.jpg" title="bicycle shop design template" alt="bicycle shop design template vector image"></noscript></a></li>
+						<li data-id="21604230" data-title="retro vintage bicycle isolated on white background" data-src="https://cdn1.vectorstock.com/i/thumbs/42/30/retro-vintage-bicycle-isolated-on-white-background-vector-21604230.jpg"><a href="//www.vectorstock.com/royalty-free-vector/retro-vintage-bicycle-isolated-on-white-background-vector-21604230" title="retro vintage bicycle isolated on white background vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/42/30/retro-vintage-bicycle-isolated-on-white-background-vector-21604230.jpg" title="retro vintage bicycle isolated on white background" alt="retro vintage bicycle isolated on white background vector image"></noscript></a></li>
+						<li data-id="24600110" data-title="bicycle icon flat" data-src="https://cdn1.vectorstock.com/i/thumbs/01/10/bicycle-icon-flat-vector-24600110.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-icon-flat-vector-24600110" title="bicycle icon flat vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/01/10/bicycle-icon-flat-vector-24600110.jpg" title="bicycle icon flat" alt="bicycle icon flat vector image"></noscript></a></li>
+						<li data-id="22962595" data-title="bicycle bike logo" data-src="https://cdn1.vectorstock.com/i/thumbs/25/95/bicycle-bike-logo-vector-22962595.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-bike-logo-vector-22962595" title="bicycle bike logo vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/25/95/bicycle-bike-logo-vector-22962595.jpg" title="bicycle bike logo" alt="bicycle bike logo vector image"></noscript></a></li>
+						<li data-id="22676760" data-title="monochrome bike logo icon isolated on white" data-src="https://cdn1.vectorstock.com/i/thumbs/67/60/monochrome-bike-logo-icon-isolated-on-white-vector-22676760.jpg"><a href="//www.vectorstock.com/royalty-free-vector/monochrome-bike-logo-icon-isolated-on-white-vector-22676760" title="monochrome bike logo icon isolated on white vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/67/60/monochrome-bike-logo-icon-isolated-on-white-vector-22676760.jpg" title="monochrome bike logo icon isolated on white" alt="monochrome bike logo icon isolated on white vector image"></noscript></a></li>
+						<li data-id="20953963" data-title="scooter black icon concept scooter sig" data-src="https://cdn4.vectorstock.com/i/thumbs/39/63/scooter-black-icon-concept-scooter-sig-vector-20953963.jpg"><a href="//www.vectorstock.com/royalty-free-vector/scooter-black-icon-concept-scooter-sig-vector-20953963" title="scooter black icon concept scooter sig vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/39/63/scooter-black-icon-concept-scooter-sig-vector-20953963.jpg" title="scooter black icon concept scooter sig" alt="scooter black icon concept scooter sig vector image"></noscript></a></li>
+						<li data-id="16359827" data-title="scooter pink version" data-src="https://cdn3.vectorstock.com/i/thumbs/98/27/scooter-pink-version-vector-16359827.jpg"><a href="//www.vectorstock.com/royalty-free-vector/scooter-pink-version-vector-16359827" title="scooter pink version vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/98/27/scooter-pink-version-vector-16359827.jpg" title="scooter pink version" alt="scooter pink version vector image"></noscript></a></li>
+						<li data-id="21289840" data-title="a bicycle icon on a white background" data-src="https://cdn1.vectorstock.com/i/thumbs/98/40/a-bicycle-icon-on-a-white-background-vector-21289840.jpg"><a href="//www.vectorstock.com/royalty-free-vector/a-bicycle-icon-on-a-white-background-vector-21289840" title="a bicycle icon on a white background vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/98/40/a-bicycle-icon-on-a-white-background-vector-21289840.jpg" title="a bicycle icon on a white background" alt="a bicycle icon on a white background vector image"></noscript></a></li>
+						<li data-id="23185018" data-title="bicycle" data-src="https://cdn4.vectorstock.com/i/thumbs/50/18/bicycle-vector-23185018.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-vector-23185018" title="bicycle vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/50/18/bicycle-vector-23185018.jpg" title="bicycle" alt="bicycle vector image"></noscript></a></li>
+						<li data-id="24504279" data-title="bike rental campaign concept" data-src="https://cdn5.vectorstock.com/i/thumbs/42/79/bike-rental-campaign-concept-vector-24504279.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-rental-campaign-concept-vector-24504279" title="bike rental campaign concept vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/42/79/bike-rental-campaign-concept-vector-24504279.jpg" title="bike rental campaign concept" alt="bike rental campaign concept vector image"></noscript></a></li>
+						<li data-id="3757234" data-title="Bicycle flat design icon EPS" data-src="https://cdn5.vectorstock.com/i/thumbs/72/34/bicycle-flat-design-icon-eps-vector-3757234.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-flat-design-icon-eps-vector-3757234" title="Bicycle flat design icon EPS vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/72/34/bicycle-flat-design-icon-eps-vector-3757234.jpg" title="Bicycle flat design icon EPS" alt="Bicycle flat design icon EPS vector image"></noscript></a></li>
+						<li data-id="23465083" data-title="cute bicycle cartoon" data-src="https://cdn4.vectorstock.com/i/thumbs/50/83/cute-bicycle-cartoon-vector-23465083.jpg"><a href="//www.vectorstock.com/royalty-free-vector/cute-bicycle-cartoon-vector-23465083" title="cute bicycle cartoon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/50/83/cute-bicycle-cartoon-vector-23465083.jpg" title="cute bicycle cartoon" alt="cute bicycle cartoon vector image"></noscript></a></li>
+						<li data-id="21346798" data-title="retro vespa scooter black silhouette" data-src="https://cdn4.vectorstock.com/i/thumbs/67/98/retro-vespa-scooter-black-silhouette-vector-21346798.jpg"><a href="//www.vectorstock.com/royalty-free-vector/retro-vespa-scooter-black-silhouette-vector-21346798" title="retro vespa scooter black silhouette vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/67/98/retro-vespa-scooter-black-silhouette-vector-21346798.jpg" title="retro vespa scooter black silhouette" alt="retro vespa scooter black silhouette vector image"></noscript></a></li>
+						<li data-id="24416113" data-title="outline detailed bike of white lines on a black" data-src="https://cdn4.vectorstock.com/i/thumbs/61/13/outline-detailed-bike-of-white-lines-on-a-black-vector-24416113.jpg"><a href="//www.vectorstock.com/royalty-free-vector/outline-detailed-bike-of-white-lines-on-a-black-vector-24416113" title="outline detailed bike of white lines on a black vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/61/13/outline-detailed-bike-of-white-lines-on-a-black-vector-24416113.jpg" title="outline detailed bike of white lines on a black" alt="outline detailed bike of white lines on a black vector image"></noscript></a></li>
+						<li data-id="24223141" data-title="bicycle gradient line" data-src="https://cdn2.vectorstock.com/i/thumbs/31/41/bicycle-gradient-line-vector-24223141.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bicycle-gradient-line-vector-24223141" title="bicycle gradient line vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/31/41/bicycle-gradient-line-vector-24223141.jpg" title="bicycle gradient line" alt="bicycle gradient line vector image"></noscript></a></li>
+						<li data-id="20629847" data-title="labels and sport logos set with parts of bicycle" data-src="https://cdn3.vectorstock.com/i/thumbs/98/47/labels-and-sport-logos-set-with-parts-of-bicycle-vector-20629847.jpg"><a href="//www.vectorstock.com/royalty-free-vector/labels-and-sport-logos-set-with-parts-of-bicycle-vector-20629847" title="labels and sport logos set with parts of bicycle vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/98/47/labels-and-sport-logos-set-with-parts-of-bicycle-vector-20629847.jpg" title="labels and sport logos set with parts of bicycle" alt="labels and sport logos set with parts of bicycle vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/logo-bike-design-vectors"><span class="lrg">More Logo Bike Design Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-artist" class="group">
+				<h6><span class="icon"></span><strong>More by <a href="/royalty-free-vectors/vectors-by_alejik" rel="nofollow">alejik</a></strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/33/38/bike-logo-design-vector-4573338.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4573338" title="bike logo design vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/33/38/bike-logo-design-vector-4573338.jpg" title="bike logo design" alt="bike logo design vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/13/25/bike-logo-design-vector-4571325.jpg"><a href="//www.vectorstock.com/royalty-free-vector/bike-logo-design-vector-4571325" title="bike logo design vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/13/25/bike-logo-design-vector-4571325.jpg" title="bike logo design" alt="bike logo design vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/00/16/postcards-from-the-moto-rider-vector-22710016.jpg"><a href="//www.vectorstock.com/royalty-free-vector/postcards-from-the-moto-rider-vector-22710016" title="postcards from the moto rider vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/00/16/postcards-from-the-moto-rider-vector-22710016.jpg" title="postcards from the moto rider" alt="postcards from the moto rider vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/64/86/biker-life-concept-print-tshirt-vector-22716486.jpg"><a href="//www.vectorstock.com/royalty-free-vector/biker-life-concept-print-tshirt-vector-22716486" title="biker life concept print tshirt vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/64/86/biker-life-concept-print-tshirt-vector-22716486.jpg" title="biker life concept print tshirt" alt="biker life concept print tshirt vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/64/84/biker-life-concept-print-tshirt-vector-22716484.jpg"><a href="//www.vectorstock.com/royalty-free-vector/biker-life-concept-print-tshirt-vector-22716484" title="biker life concept print tshirt vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/64/84/biker-life-concept-print-tshirt-vector-22716484.jpg" title="biker life concept print tshirt" alt="biker life concept print tshirt vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/64/85/biker-life-concept-print-tshirt-vector-22716485.jpg"><a href="//www.vectorstock.com/royalty-free-vector/biker-life-concept-print-tshirt-vector-22716485" title="biker life concept print tshirt vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/64/85/biker-life-concept-print-tshirt-vector-22716485.jpg" title="biker life concept print tshirt" alt="biker life concept print tshirt vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/00/17/postcards-from-the-moto-rider-vector-22710017.jpg"><a href="//www.vectorstock.com/royalty-free-vector/postcards-from-the-moto-rider-vector-22710017" title="postcards from the moto rider vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/00/17/postcards-from-the-moto-rider-vector-22710017.jpg" title="postcards from the moto rider" alt="postcards from the moto rider vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/94/46/driving-school-logo-vector-15169446.jpg"><a href="//www.vectorstock.com/royalty-free-vector/driving-school-logo-vector-15169446" title="driving school logo vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/94/46/driving-school-logo-vector-15169446.jpg" title="driving school logo" alt="driving school logo vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/95/29/driving-school-logo-vector-15169529.jpg"><a href="//www.vectorstock.com/royalty-free-vector/driving-school-logo-vector-15169529" title="driving school logo vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/95/29/driving-school-logo-vector-15169529.jpg" title="driving school logo" alt="driving school logo vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/94/53/automobile-tire-service-logo-vector-15169453.jpg"><a href="//www.vectorstock.com/royalty-free-vector/automobile-tire-service-logo-vector-15169453" title="automobile tire service logo vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/94/53/automobile-tire-service-logo-vector-15169453.jpg" title="automobile tire service logo" alt="automobile tire service logo vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="15203314" data-title="running man silhouette marathon" data-src="https://cdn5.vectorstock.com/i/thumbs/33/14/running-man-silhouette-marathon-vector-15203314.jpg"><a href="//www.vectorstock.com/royalty-free-vector/running-man-silhouette-marathon-vector-15203314" title="running man silhouette marathon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/33/14/running-man-silhouette-marathon-vector-15203314.jpg" title="running man silhouette marathon" alt="running man silhouette marathon vector image vector image"></noscript></a></li>
+						<li data-id="15202791" data-title="running man silhouette marathon" data-src="https://cdn2.vectorstock.com/i/thumbs/27/91/running-man-silhouette-marathon-vector-15202791.jpg"><a href="//www.vectorstock.com/royalty-free-vector/running-man-silhouette-marathon-vector-15202791" title="running man silhouette marathon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/27/91/running-man-silhouette-marathon-vector-15202791.jpg" title="running man silhouette marathon" alt="running man silhouette marathon vector image vector image"></noscript></a></li>
+						<li data-id="15202948" data-title="running man silhouette marathon" data-src="https://cdn4.vectorstock.com/i/thumbs/29/48/running-man-silhouette-marathon-vector-15202948.jpg"><a href="//www.vectorstock.com/royalty-free-vector/running-man-silhouette-marathon-vector-15202948" title="running man silhouette marathon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/29/48/running-man-silhouette-marathon-vector-15202948.jpg" title="running man silhouette marathon" alt="running man silhouette marathon vector image vector image"></noscript></a></li>
+						<li data-id="15203616" data-title="running man silhouette marathon" data-src="https://cdn2.vectorstock.com/i/thumbs/36/16/running-man-silhouette-marathon-vector-15203616.jpg"><a href="//www.vectorstock.com/royalty-free-vector/running-man-silhouette-marathon-vector-15203616" title="running man silhouette marathon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/36/16/running-man-silhouette-marathon-vector-15203616.jpg" title="running man silhouette marathon" alt="running man silhouette marathon vector image vector image"></noscript></a></li>
+						<li data-id="15202954" data-title="running man silhouette marathon" data-src="https://cdn5.vectorstock.com/i/thumbs/29/54/running-man-silhouette-marathon-vector-15202954.jpg"><a href="//www.vectorstock.com/royalty-free-vector/running-man-silhouette-marathon-vector-15202954" title="running man silhouette marathon vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/29/54/running-man-silhouette-marathon-vector-15202954.jpg" title="running man silhouette marathon" alt="running man silhouette marathon vector image vector image"></noscript></a></li>
+						<li data-id="15202953" data-title="city marathon logo" data-src="https://cdn4.vectorstock.com/i/thumbs/29/53/city-marathon-logo-vector-15202953.jpg"><a href="//www.vectorstock.com/royalty-free-vector/city-marathon-logo-vector-15202953" title="city marathon logo vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/29/53/city-marathon-logo-vector-15202953.jpg" title="city marathon logo" alt="city marathon logo vector image vector image"></noscript></a></li>
+						<li data-id="15202792" data-title="city marathon logo" data-src="https://cdn3.vectorstock.com/i/thumbs/27/92/city-marathon-logo-vector-15202792.jpg"><a href="//www.vectorstock.com/royalty-free-vector/city-marathon-logo-vector-15202792" title="city marathon logo vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/27/92/city-marathon-logo-vector-15202792.jpg" title="city marathon logo" alt="city marathon logo vector image vector image"></noscript></a></li>
+						<li data-id="15202794" data-title="city marathon logo" data-src="https://cdn5.vectorstock.com/i/thumbs/27/94/city-marathon-logo-vector-15202794.jpg"><a href="//www.vectorstock.com/royalty-free-vector/city-marathon-logo-vector-15202794" title="city marathon logo vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/27/94/city-marathon-logo-vector-15202794.jpg" title="city marathon logo" alt="city marathon logo vector image vector image"></noscript></a></li>
+						<li data-id="15401871" data-title="mobile app for ordering taxi simple icon" data-src="https://cdn2.vectorstock.com/i/thumbs/18/71/mobile-app-for-ordering-taxi-simple-icon-vector-15401871.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mobile-app-for-ordering-taxi-simple-icon-vector-15401871" title="mobile app for ordering taxi simple icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/18/71/mobile-app-for-ordering-taxi-simple-icon-vector-15401871.jpg" title="mobile app for ordering taxi simple icon" alt="mobile app for ordering taxi simple icon vector image vector image"></noscript></a></li>
+						<li data-id="15203337" data-title="running man silhouette marathon" data-src="https://cdn3.vectorstock.com/i/thumbs/33/37/running-man-silhouette-marathon-vector-15203337.jpg"><a href="//www.vectorstock.com/royalty-free-vector/running-man-silhouette-marathon-vector-15203337" title="running man silhouette marathon vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/33/37/running-man-silhouette-marathon-vector-15203337.jpg" title="running man silhouette marathon" alt="running man silhouette marathon vector image vector image"></noscript></a></li>
+						<li data-id="15401873" data-title="mobile app for ordering taxi simple icon" data-src="https://cdn4.vectorstock.com/i/thumbs/18/73/mobile-app-for-ordering-taxi-simple-icon-vector-15401873.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mobile-app-for-ordering-taxi-simple-icon-vector-15401873" title="mobile app for ordering taxi simple icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/18/73/mobile-app-for-ordering-taxi-simple-icon-vector-15401873.jpg" title="mobile app for ordering taxi simple icon" alt="mobile app for ordering taxi simple icon vector image vector image"></noscript></a></li>
+						<li data-id="15401845" data-title="sex shop logo with condom and heart" data-src="https://cdn1.vectorstock.com/i/thumbs/18/45/sex-shop-logo-with-condom-and-heart-vector-15401845.jpg"><a href="//www.vectorstock.com/royalty-free-vector/sex-shop-logo-with-condom-and-heart-vector-15401845" title="sex shop logo with condom and heart vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/18/45/sex-shop-logo-with-condom-and-heart-vector-15401845.jpg" title="sex shop logo with condom and heart" alt="sex shop logo with condom and heart vector image vector image"></noscript></a></li>
+						<li data-id="15202951" data-title="city marathon logo" data-src="https://cdn2.vectorstock.com/i/thumbs/29/51/city-marathon-logo-vector-15202951.jpg"><a href="//www.vectorstock.com/royalty-free-vector/city-marathon-logo-vector-15202951" title="city marathon logo vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/29/51/city-marathon-logo-vector-15202951.jpg" title="city marathon logo" alt="city marathon logo vector image vector image"></noscript></a></li>
+						<li data-id="21925559" data-title="construction machinery" data-src="https://cdn5.vectorstock.com/i/thumbs/55/59/construction-machinery-vector-21925559.jpg"><a href="//www.vectorstock.com/royalty-free-vector/construction-machinery-vector-21925559" title="construction machinery vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/55/59/construction-machinery-vector-21925559.jpg" title="construction machinery" alt="construction machinery vector image vector image"></noscript></a></li>
+						<li data-id="21925557" data-title="construction machinery" data-src="https://cdn3.vectorstock.com/i/thumbs/55/57/construction-machinery-vector-21925557.jpg"><a href="//www.vectorstock.com/royalty-free-vector/construction-machinery-vector-21925557" title="construction machinery vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/55/57/construction-machinery-vector-21925557.jpg" title="construction machinery" alt="construction machinery vector image vector image"></noscript></a></li>
+						<li data-id="21925889" data-title="construction machinery" data-src="https://cdn5.vectorstock.com/i/thumbs/58/89/construction-machinery-vector-21925889.jpg"><a href="//www.vectorstock.com/royalty-free-vector/construction-machinery-vector-21925889" title="construction machinery vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/58/89/construction-machinery-vector-21925889.jpg" title="construction machinery" alt="construction machinery vector image vector image"></noscript></a></li>
+						<li data-id="4574352" data-title="logo design" data-src="https://cdn3.vectorstock.com/i/thumbs/43/52/logo-design-vector-4574352.jpg"><a href="//www.vectorstock.com/royalty-free-vector/logo-design-vector-4574352" title="logo design vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/43/52/logo-design-vector-4574352.jpg" title="logo design" alt="logo design vector image vector image"></noscript></a></li>
+						<li data-id="4572447" data-title="logo design" data-src="https://cdn3.vectorstock.com/i/thumbs/24/47/logo-design-vector-4572447.jpg"><a href="//www.vectorstock.com/royalty-free-vector/logo-design-vector-4572447" title="logo design vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/24/47/logo-design-vector-4572447.jpg" title="logo design" alt="logo design vector image vector image"></noscript></a></li>
+						<li data-id="16240098" data-title="kids monster logo" data-src="https://cdn4.vectorstock.com/i/thumbs/00/98/kids-monster-logo-vector-16240098.jpg"><a href="//www.vectorstock.com/royalty-free-vector/kids-monster-logo-vector-16240098" title="kids monster logo vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/00/98/kids-monster-logo-vector-16240098.jpg" title="kids monster logo" alt="kids monster logo vector image vector image"></noscript></a></li>
+						<li data-id="15169526" data-title="car repaire service" data-src="https://cdn2.vectorstock.com/i/thumbs/95/26/car-repaire-service-vector-15169526.jpg"><a href="//www.vectorstock.com/royalty-free-vector/car-repaire-service-vector-15169526" title="car repaire service vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/95/26/car-repaire-service-vector-15169526.jpg" title="car repaire service" alt="car repaire service vector image vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-by_alejik" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-keywords" class="group">
+				<h6><span class="icon"></span><strong>Related Searches</strong></h6>
+				<ul>
+					<li><a href="/royalty-free-vectors/logo-vectors">Logo</a></li>
+					<li><a href="/royalty-free-vectors/bike-vectors">Bike</a></li>
+					<li><a href="/royalty-free-vectors/design-vectors">Design</a></li>
+					<li><a href="/royalty-free-vectors/vintage-vectors">Vintage</a></li>
+					<li><a href="/royalty-free-vectors/silhouette-vectors">Silhouette</a></li>
+					<li><a href="/royalty-free-vectors/rental-vectors">Rental</a></li>
+					<li><a href="/royalty-free-vectors/healthy-vectors">Healthy</a></li>
+					<li><a href="/royalty-free-vectors/transportation-vectors">Transportation</a></li>
+					<li><a href="/royalty-free-vectors/cute-vectors">Cute</a></li>
+					<li><a href="/royalty-free-vectors/cycle-vectors">Cycle</a></li>
+					<li><a href="/royalty-free-vectors/flat-vectors">Flat</a></li>
+					<li><a href="/royalty-free-vectors/retro-vectors">Retro</a></li>
+					<li><a href="/royalty-free-vectors/simple-vectors">Simple</a></li>
+					<li><a href="/royalty-free-vectors/vehicle-vectors">Vehicle</a></li>
+					<li><a href="/royalty-free-vectors/transport-vectors">Transport</a></li>
+					<li><a href="/royalty-free-vectors/urban-vectors">Urban</a></li>
+					<li><a href="/royalty-free-vectors/icon-vectors">Icon</a></li>
+					<li><a href="/royalty-free-vectors/fixed-vectors">Fixed</a></li>
+					<li><a href="/royalty-free-vectors/wheel-vectors">Wheel</a></li>
+					<li><a href="/royalty-free-vectors/speed-vectors">Speed</a></li>
+					<li><a href="/royalty-free-vectors/ride-vectors">Ride</a></li>
+					<li><a href="/royalty-free-vectors/outdoor-vectors">Outdoor</a></li>
+					<li><a href="/royalty-free-vectors/country-vectors">Country</a></li>
+					<li><a href="/royalty-free-vectors/antique-vectors">Antique</a></li>
+					<li><a href="/royalty-free-vectors/bicycle-vectors">Bicycle</a></li>
+					<li><a href="/royalty-free-vectors/gear-vectors">Gear</a></li>
+					<li><a href="/royalty-free-vectors/tourism-vectors">Tourism</a></li>
+					<li><a href="/royalty-free-vectors/motion-vectors">Motion</a></li>
+					<li><a href="/royalty-free-vectors/rent-vectors">Rent</a></li>
+					<li><a href="/royalty-free-vectors/sport-vectors">Sport</a></li>
+				</ul>
+			</div>
+		</section>
+	</article>
+
+	<!-- Footer -->
+	<footer>
+
+		<div>
+		<div class="column c1">
+			<nav class="company">
+				<h4>VectorStock</h4>
+				<ul>
+					<li><a href="/" title="Home">Home</a></li>
+					<li class="sel"><a href="/free-vectors" title="Free Vectors">Free Vectors</a></li>
+					<li class="sel"><a href="/royalty-free-vectors" title="All Royalty-Free Vectors">All Vectors</a></li>
+				</ul>
+				<ul>
+					<li><a href="/what-is-a-vector" title="What is a Vector?">What is a Vector?</a></li>
+				</ul>
+				<ul>
+					<li class="sel"><a href="/faq" title="Frequently Asked Questions"><span class="long">Frequently Asked Questions</span><span class="short">FAQs</span></a></li>
+					<li><a href="/faq/members/terms-of-use" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+					<li class="sel"><a href="/contact" title="Contact Us">Contact Us</a></li>
+									</ul>
+			</nav>
+		</div>
+		<div class="column c2">
+			<nav class="account">
+					<h4><span class="title">Account</span><span class="icon"></span></h4>
+					<ul>
+						<li><a href="/signup" title="Join Now">Join Now</a></li>
+						<li><a href="/signup?contributor" title="Become a VectorStock Contributor">Contributor Sign Up</a></li>
+						<li><a href="/faq/artists/why-sell-at-vectorstock" title="Contributor FAQ">Contributor FAQ</a></li>
+					</ul>
+			</nav>
+		</div>
+		<div class="column c3">
+			<nav class="social">
+				<h4>Social</h4>
+				<ul>
+					<li class="facebook sel"><a href="http://www.facebook.com/VectorStock" target="_blank"><span class="title">Facebook</span><span class="icon"></span></a></li>
+					<li class="pinterest sel"><a href="http://pinterest.com/vectorstock/" target="_blank"><span class="title">Pinterest</span><span class="icon"></span></a></li>
+					<li class="twitter sel"><a href="https://twitter.com/VectorStock" target="_blank"><span class="title">Twitter</span><span class="icon"></span></a></li>
+				</ul>
+			</nav>
+			<div class="signoff">
+				<h5><a href="https://www.vectorstock.com/" title="VectorStock®">VectorStock®</a></h5>
+				<p>VectorStock and the VectorStock logo are registered trademarks of VectorStock Media.<br>
+				© 2019. <span>All Rights Reserved.</span></p>
+			</div>
+		</div>
+	</div></footer>
+
+
+	<script src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"02e09611df","applicationID":"156179534","transactionName":"ZV0ENRYCC0RYAkVbDVwXJRQXFwpaFhNeSwNeTB9MAhEAUhQXVFEWXUpJAw0IABpVDlZdT1ZdFQgDDUhBXAJFXRAfDFNWV1dUBA==","queueTime":0,"applicationTime":56,"atts":"SRoHQ14YGEo=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+</body>
+</html>
